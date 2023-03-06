@@ -1,5 +1,5 @@
 #include "Funzioni.h"
-#include "Menù.hpp"
+#include "Menu.hpp"
 
 int main()
 {
@@ -7,9 +7,8 @@ int main()
 
     Hidecurs();
 
-    menù m = menù::menù();
+    menu m = menu();
     m.select(mat);
 
     return 0;
-
 }

@@ -41,7 +41,7 @@ void strada::draw_map(int mat_map[20][30])
             }
             else if (mat_map[i][j] == 2)
             {
-                cout << "ø";
+                cout << "o";
             }
             else if (mat_map[i][j] == 3)
             {
@@ -53,7 +53,7 @@ void strada::draw_map(int mat_map[20][30])
             }
             else if (mat_map[i][j] == 5)
             {
-                cout << "°";
+                cout << "Q";
             }
             else if (mat_map[i][j] == 6)
             {

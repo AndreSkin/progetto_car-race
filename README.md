@@ -1,3 +1,5 @@
+A.A 2019/2020
+
 I componenti del gruppo sono:  
 Leonardo Giacomini - mat 0916084  
 Mario Miccichè - mat 0914501  

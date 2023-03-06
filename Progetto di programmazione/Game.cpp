@@ -1,6 +1,6 @@
 #include "Funzioni.h"
 #include "Game.hpp"
-#include "Menù.hpp"
+#include "menu.hpp"
 #include "Strada.hpp"
 #include "Macchina.hpp"
 #include "Ostacoli.hpp"
@@ -20,21 +20,21 @@ void game::in_game(int mat[20][30]) {
 
     int slowdown = 0; //RALLENTA IL MOVIMENTO DEGLI OSTACOLI
     bool obst2 = false; //
-    bool obst3 = false; // IDENTIFICANO SE L'OSTACOLO È PRESENTE
+    bool obst3 = false; // IDENTIFICANO SE L'OSTACOLO E' PRESENTE
     bool obst4 = false; //
     int dist = 0; // DISTANZA TRA GLI OSTACOLI
-    int h = 0; // ALTEZZA IN CUI L'OSTACOLO È STATO COLPITO
+    int h = 0; // ALTEZZA IN CUI L'OSTACOLO E' STATO COLPITO
     bool back = false; // IDENTIFICA SE BISOGNA TORNARE INDIETRO DI LIVELLO
     int d = 1; // DISTANZA CHE PERCORRONO GLI OSTACOLI OGNI VOLTA CHE AVANZANO
-    int speed = 5; //VELOCITÀ DEGLI OSTACOLI
+    int speed = 5; //VELOCITA' DEGLI OSTACOLI
 
-    menù m = menù::menù();
-    strada s = strada::strada(mat);
-    macchina car = macchina::macchina(mat);
-    liv_obst liv = liv_obst::liv_obst();
-    ostacoli obst = ostacoli::ostacoli(mat);
-    score sc = score::score();
-    form fr = form::form(mat);
+    menu m = menu();
+    strada s = strada(mat);
+    macchina car = macchina(mat);
+    liv_obst liv = liv_obst();
+    ostacoli obst = ostacoli(mat);
+    score sc = score();
+    form fr = form(mat);
 
     while (play)
     {
@@ -69,7 +69,7 @@ void game::in_game(int mat[20][30]) {
         car.set_car(mat);
         car.move();
 
-        //INDIVIDUA QUALE OSTACOLO è STATO COLPITO
+        //INDIVIDUA QUALE OSTACOLO E' STATO COLPITO
         int p = car.hit_box(mat);
         if (p != 0) {
             if (p == 1) {
@@ -143,7 +143,7 @@ void game::in_game(int mat[20][30]) {
         sc.draw_score();
         liv.draw_liv();
 
-        // RITARDO DELLO SPOSTAMENTO DEGLI OSTACOLI PER DARE PIÙ MANEGGEVOLEZZA ALLA MACCHINA 
+        // RITARDO DELLO SPOSTAMENTO DEGLI OSTACOLI PER DARE PIU' MANEGGEVOLEZZA ALLA MACCHINA 
         slowdown++;
         if (slowdown == speed) {
             //MOVIMENTO DEGLI OSTACOLI
@@ -266,7 +266,7 @@ void game::in_game(int mat[20][30]) {
             }
         }
         
-        //RICHIAMA IL MENÙ DI PAUSA
+        //RICHIAMA IL menu DI PAUSA
         if (GetAsyncKeyState('P') && 0x0001) {
            m.pause(mat);
         }
